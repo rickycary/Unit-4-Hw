@@ -24,4 +24,16 @@ def check_stats():
     print (f"You currently have {game['money']} and are using a {tool['name']}")
     
 def upgrade():
+    next_tool = tools[game["tool"] + 1]
+    if (next_tool == None):
+        print("There is no more tools")
+        return 0
+    if (game["money"] < next_tool["cost"]):
+        print("not enough to buy the tool")
+        return 0
+    game["money"] -= next_tool["cost"]
+    game["tool"] += 1
     
+def win_check(){
+    
+}
