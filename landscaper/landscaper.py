@@ -19,7 +19,7 @@ def cutGrass():
     print(f'You cut the grass with you {tool["name"]} and make ${tool["profit"]}')
     game["money"] += tool["profit"]   
     
-def check_stats():
+def check_Stats():
     tool = tools[game["tool"]]
     print (f"You currently have {game['money']} and are using a {tool['name']}")
     
@@ -39,3 +39,17 @@ def win_check():
         print("You win")
         return True
     return False
+
+while (True): 
+    
+    i = input("[1] Cut Grass [2] Check Stats [3] Upgrade [4] Quit Game")
+    
+    if (i == 1):
+        cutGrass()
+    if (i == 2):
+        check_Stats()
+    if (i == 3):
+        upgrade()
+    if (i == 4):
+        print("You quit the game")
+        break
