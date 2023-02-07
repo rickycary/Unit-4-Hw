@@ -24,6 +24,9 @@ def check_Stats():
     print (f"You currently have {game['money']} and are using a {tool['name']}")
     
 def upgrade():
+    if (game['tool'] >= len(tools) - 1):
+        print("There are no more upgrades remaining")
+        return 0
     next_tool = tools[game["tool"] + 1]
     if (next_tool == None):
         print("There is no more tools")
@@ -31,6 +34,7 @@ def upgrade():
     if (game["money"] < next_tool["cost"]):
         print("not enough to buy the tool")
         return 0
+    print("You are upgrading your tool")
     game["money"] -= next_tool["cost"]
     game["tool"] += 1
     
@@ -43,6 +47,7 @@ def win_check():
 while (True): 
     
     i = input("[1] Cut Grass [2] Check Stats [3] Upgrade [4] Quit Game")
+    i = int(i)
     
     if (i == 1):
         cutGrass()
@@ -52,4 +57,6 @@ while (True):
         upgrade()
     if (i == 4):
         print("You quit the game")
+        break
+    if (win_check()):
         break
