@@ -34,6 +34,8 @@ def upgrade():
     game["money"] -= next_tool["cost"]
     game["tool"] += 1
     
-def win_check(){
-    
-}
+def win_check():
+    if(game["tool"] == 4 and game["money"] >= 1000):
+        print("You win")
+        return True
+    return False
